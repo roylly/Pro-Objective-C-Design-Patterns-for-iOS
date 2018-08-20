@@ -20,10 +20,14 @@
   
   // Add the view controller's view to the window and display.
   CoordinatingController *coordinatingController = [CoordinatingController sharedInstance];
-  UIView *view = [[coordinatingController activeViewController] view];
-  [window_ addSubview:view];
-  [window_ makeKeyAndVisible];
-  
+    UIViewController *rootVC = [coordinatingController activeViewController];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = rootVC;
+//  UIView *view = [[coordinatingController activeViewController] view];
+//  [window_ addSubview:view];
+//  [window_ makeKeyAndVisible];
+
+    [self.window makeKeyAndVisible];
   return YES;
 }
 
